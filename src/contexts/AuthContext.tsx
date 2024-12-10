@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       const users = JSON.parse(localStorage.getItem('users') || '[]');
       const user = users.find((u: User) => u.email === email);
-      
+      console.log(password)
       if (user) {
         setUser(user);
         localStorage.setItem('user', JSON.stringify(user));
@@ -81,6 +81,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         name,
         role: 'patient'
       };
+      console.log(password)
       users.push(newUser);
       localStorage.setItem('users', JSON.stringify(users));
       return true;
